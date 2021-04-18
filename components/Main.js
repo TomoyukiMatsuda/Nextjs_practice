@@ -1,14 +1,14 @@
 import { HeaderLine } from '../components/HeaderLine'
 import { Links } from '../components/Links'
-import styles from '../styles/Home.module.css'
+import classes from './Main.module.css'
 
 export function Main(props) {
   const { root } = props;
 
   return (
-    <main className={styles.main}>
+    <main className={classes.main}>
       <HeaderLine root={root} >
-        <code className={styles.code}>pages/{root}.js</code>
+        <code className={classes.code}>pages/{root}.js</code>
       </HeaderLine>
       <Links />
     </main>
