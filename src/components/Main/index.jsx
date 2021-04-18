@@ -1,6 +1,6 @@
-import { HeaderLine } from '../components/HeaderLine'
-import { Links } from '../components/Links'
-import classes from './Main.module.css'
+import { HeaderLine } from 'src/components/HeaderLine'
+import { Links } from 'src/components/Links';
+import classes from 'src/components/Main/Main.module.css';
 
 export function Main(props) {
   const { root } = props;
@@ -14,3 +14,5 @@ export function Main(props) {
     </main>
   )
 }
+
+// 絶対パスに修正する？？

@@ -1,4 +1,4 @@
-import classes from './HeaderLine.module.css'
+import classes from 'src/components/HeaderLine/HeaderLine.module.css'
 
 export function HeaderLine(props) {
   const { root, children } = props;
