@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { Footer } from '../components/Footer'
-import { HeaderLine } from '../components/HeaderLine'
-import { Links } from '../components/Links'
+import { Main } from '../components/Main'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -11,11 +10,7 @@ export default function Home() {
         <title>Next App！</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <HeaderLine root="index" />
-        <Links />
-      </main>
+      <Main root="index" />
       <Footer />
     </div>
   )

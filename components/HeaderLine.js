@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css'
 
 export function HeaderLine(props) {
-  const { root } = props;
+  const { root, children } = props;
 
   return (
     <div>
@@ -10,8 +10,7 @@ export function HeaderLine(props) {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/{root}.js</code>
+          {children}
         </p>
     </div>
   )
