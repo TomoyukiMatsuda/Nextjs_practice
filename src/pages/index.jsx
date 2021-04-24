@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { Footer } from 'src/components/Footer'
 import { Header } from 'src/components/Header'
 import { Main } from 'src/components/Main'
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 
 export default function Home() {
   const foo = "ふーだよ";
@@ -14,6 +14,17 @@ export default function Home() {
       e.preventDefault();
       alert(foo);
     }, [],);
+
+    // ライフサイクル マウント時、アンマウント時に走る
+    useEffect(() => {
+      console.log("マウント時");
+      document.body.style.backgroundColor = "lightblue";
+  
+      return () => {
+        console.log("アンマウント時");
+        document.body.style.backgroundColor = "";
+      }
+    }, []);
 
   return (
     <div className={styles.container}>
