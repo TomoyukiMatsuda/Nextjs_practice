@@ -3,31 +3,32 @@ import Head from 'next/head'
 import { Footer } from 'src/components/Footer'
 import { Header } from 'src/components/Header'
 import { Main } from 'src/components/Main'
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export default function Home() {
   const [count, setCount] = useState(1);
 
   // useCallback(コールバック関数, 依存配列); 再レンダリングを防ぐ
-  const handleClick = (e) => {
+  const handleClick = useCallback(() => {
     // 前の状態を用いた処理をしたい場合はset~~(関数)とする
-    setCount(() => count + 1);
-
+    if (count < 10) {
+      setCount((count) => count + 1);
+    }
+    // setCount((count) => count + 1);
+    // setCount((count) => count + 1);
     // あんまり良く無いかも
     // setFoo(count + 1);
-  }
+  }, [count]);
 
     // ライフサイクル マウント時、アンマウント時に走る
     useEffect(() => {
+      // マウント時に走る
       document.body.style.backgroundColor = "lightblue";
-
       return () => {
-        console.log("アンマウント時");
+        // アンマウント時に走る
         document.body.style.backgroundColor = "";
       }
     }, []);
-
-    console.log(count);
 
   return (
     <div className={styles.container}>
