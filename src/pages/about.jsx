@@ -3,14 +3,10 @@ import { Footer } from 'src/components/Footer'
 import { Header } from 'src/components/Header'
 import { Main } from 'src/components/Main'
 import styles from 'src/styles/Home.module.css'
-import { useCounter } from "../hooks/useCounter";
-import { useBgLightBlue } from "../hooks/useBgLightBlue";
-import { useInputArr } from "../hooks/useInputArr";
 
-export default function About() {
-    const { count, isShow, handleClick, handleDisplay } = useCounter();
-    const { text, array, handleAdd, handleChange } = useInputArr();
-    useBgLightBlue();
+export default function About(props) {
+    // 引数を中で展開している props として受け取っている
+    const { count, isShow, handleClick, handleDisplay, text, array, handleAdd, handleChange } = props;
 
     return (
     <div className={styles.container}>

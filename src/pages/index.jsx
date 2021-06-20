@@ -3,16 +3,10 @@ import Head from "next/head";
 import { Footer } from "src/components/Footer";
 import { Header } from "src/components/Header";
 import { Main } from "src/components/Main";
-import { useCounter } from "src/hooks/useCounter";
-import { useBgLightBlue } from "../hooks/useBgLightBlue";
-import { useInputArr } from "../hooks/useInputArr";
 
-// TODO: しまぶーさんReact講座 #15~ 開始！
-export default function Home() {
-  const { count, isShow, handleClick, handleDisplay } = useCounter();
-  const { text, array, handleAdd, handleChange } = useInputArr();
-  useBgLightBlue();
-
+// TODO: しまぶーさんReact講座 #16~ 開始！
+// 引数を受け取る段階で props を展開
+export default function Home({ count, isShow, handleClick, handleDisplay, text, array, handleAdd, handleChange }) {
   return (
     <div className={styles.container}>
       <Head>
