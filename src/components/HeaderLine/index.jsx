@@ -1,7 +1,7 @@
 import classes from 'src/components/HeaderLine/HeaderLine.module.css'
 
 export function HeaderLine(props) {
-  const { root, children } = props;
+  const { root, children, handleReduce } = props;
 
   return (
     <div>
@@ -12,6 +12,7 @@ export function HeaderLine(props) {
         <p className={classes.description}>
           {children}
         </p>
+      <button onClick={handleReduce}>減らす（ヘッダーライン）</button>
     </div>
   )
 }
