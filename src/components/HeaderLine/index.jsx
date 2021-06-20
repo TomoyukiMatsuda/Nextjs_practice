@@ -1,18 +1,16 @@
 import classes from 'src/components/HeaderLine/HeaderLine.module.css'
 
-export function HeaderLine(props) {
-  const { root, children, handleReduce } = props;
-
+export const HeaderLine = (props) => {
   return (
     <div>
       <h1 className={classes.title}>
-          {root} page
+          {props.root} page
         </h1>
 
         <p className={classes.description}>
-          {children}
+          {props.children}
         </p>
-      <button onClick={handleReduce}>減らす（ヘッダーライン）</button>
+      <button onClick={props.handleReduce}>減らす（ヘッダーライン）</button>
     </div>
   )
 }

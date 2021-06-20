@@ -4,7 +4,7 @@ import {useCounter} from "../hooks/useCounter";
 import {useInputArr} from "../hooks/useInputArr";
 import {useBgColor} from "../hooks/useBgColor";
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   // ページ間で State(状態) を共通管理 _app.jsx にリフトアップしている。これはReactにあるものではなく、Next.js だからできること
   const counter = useCounter();
   const inputArr = useInputArr();

@@ -26,8 +26,7 @@ const ITEMS = [
   },
 ];
 
-export function Main(props) {
-  const { root } = props;
+export const Main = (props) => {
   const [items, setItems] = useState(ITEMS);
   const handleReduce = useCallback(() => {
     setItems((prevItems) => {
@@ -37,13 +36,11 @@ export function Main(props) {
 
   return (
     <main className={classes.main}>
-      <HeaderLine root={root} handleReduce={handleReduce} >
-        <code className={classes.code}>pages/{root}.js</code>
+      <HeaderLine root={props.root} handleReduce={handleReduce} >
+        <code className={classes.code}>pages/{props.root}.js</code>
         <p>{items.length}</p>
       </HeaderLine>
       <Links items={items} handleReduce={handleReduce}/>
     </main>
   )
 }
-
-// 絶対パスに修正する？？
