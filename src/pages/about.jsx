@@ -6,7 +6,7 @@ import styles from 'src/styles/Home.module.css'
 
 export default function About(props) {
     // 引数を中で展開している props として受け取っている
-    const { count, isShow, handleClick, handleDisplay, text, array, handleAdd, handleChange } = props;
+    const { doubleCount, isShow, handleClick, handleDisplay, text, array, handleAdd, handleChange } = props;
 
     return (
     <div className={styles.container}>
@@ -18,7 +18,7 @@ export default function About(props) {
         </Head>
         <Header />
 
-        {isShow ? <h1>{count}</h1> : null}
+        {isShow ? <h1>{doubleCount}</h1> : null}
         <button onClick={handleClick}>ボタン</button>
         <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
 
