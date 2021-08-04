@@ -1,6 +1,6 @@
 import classes from 'src/components/Footer/Footer.module.css'
 
-export const Footer = () => {
+export const Footer = () =>  {
   return (
       <footer className={classes.footer}>
         <a
@@ -9,6 +9,7 @@ export const Footer = () => {
           rel="noopener noreferrer"
         >
           フッターコンポーネント{' '}
+          {/*eslint-disable-next-line @next/next/no-img-element */}
           <img src="/vercel.svg" alt="Vercel Logo" className={classes.logo} />
         </a>
       </footer>
