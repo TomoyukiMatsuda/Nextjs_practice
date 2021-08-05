@@ -1,14 +1,14 @@
-import Head from 'next/head';
-import 'src/styles/globals.css';
-import {useCounter} from "../hooks/useCounter";
-import {useInputArr} from "../hooks/useInputArr";
-import {useBgColor} from "../hooks/useBgColor";
+import Head from "next/head";
+import "src/styles/globals.css";
+import { useCounter } from "../hooks/useCounter";
+import { useInputArr } from "../hooks/useInputArr";
+import { useBgColor } from "../hooks/useBgColor";
 
 const MyApp = ({ Component, pageProps }) => {
   // ページ間で State(状態) を共通管理 _app.jsx にリフトアップしている。これはReactにあるものではなく、Next.js だからできること
   const counter = useCounter();
   const inputArr = useInputArr();
-  useBgColor()
+  useBgColor();
 
   return (
     <>
@@ -17,7 +17,7 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       <Component {...pageProps} {...counter} {...inputArr} />
     </>
-  )
-}
+  );
+};
 
-export default MyApp
+export default MyApp;
