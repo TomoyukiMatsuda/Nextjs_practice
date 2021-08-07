@@ -8,10 +8,10 @@ export const useCounter = () => {
   // todo: useEffect学習用記述 後々消す
   useEffect(() => {
     // ① 実行させたい処理
-    console.log(`① count：${count}`);
+    //console.log(`① count：${count}`);
     return () => {
       // ② ①の処理と対の関係になるクリーンアップ関数
-      console.log(`② count：${count}`);
+      //console.log(`② count：${count}`);
     };
   }, [count]); // ③ 依存配列に変数 count を指定
 

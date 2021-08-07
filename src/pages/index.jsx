@@ -11,7 +11,7 @@ const Home = () => {
         <title>Index Page</title>
       </Head>
       <Header />
-      {/*<Posts />*/}
+      <Posts />
     </div>
   );
 };
