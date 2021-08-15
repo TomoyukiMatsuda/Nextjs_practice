@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 
 export const Posts = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // stateを一つにまとめた
+  const [state, setState] = useState({
+    data: [],
+    loading: true,
+    error: null,
+  });
 
   const getPosts = useCallback(async () => {
     try {
@@ -12,31 +15,42 @@ export const Posts = () => {
         throw new Error("データ取得中にエラーが発生、データ取得失敗");
       }
       const json = await res.json();
-      setPosts(json);
+      setState((preState) => {
+        // preStateには前の状態の値が格納されており、それ以外の値を上書きしてる
+        return {
+          ...preState,
+          data: json,
+          loading: false,
+        };
+      });
     } catch (e) {
-      setError(e);
+      setState((preState) => {
+        return {
+          ...preState,
+          loading: false,
+          error: e,
+        };
+      });
     }
-    // 最終的には成功でも失敗でも Loading はfalseとなる
-    setLoading(false);
   }, []);
 
   useEffect(() => {
     getPosts();
   }, [getPosts]);
 
-  if (loading) {
+  if (state.loading) {
     return <div>ローディング中です。</div>;
   }
-  if (error) {
-    return <div>{error.message}</div>;
+  if (state.error) {
+    return <div>{state.error.message}</div>;
   }
-  if (posts.length === 0) {
+  if (state.data.length === 0) {
     return <div>データはからです。</div>;
   }
 
   return (
     <ol>
-      {posts.map((post) => {
+      {state.data.map((post) => {
         return <li key={post.id}>{post.title}</li>;
       })}
     </ol>
