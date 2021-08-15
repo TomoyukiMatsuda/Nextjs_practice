@@ -22,7 +22,7 @@ export const Posts = () => {
 
   useEffect(() => {
     getPosts();
-  }, [getPosts()]);
+  }, [getPosts]);
 
   if (loading) {
     return <div>ローディング中です。</div>;
