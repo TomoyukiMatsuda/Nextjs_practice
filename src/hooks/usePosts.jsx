@@ -13,6 +13,7 @@ const fetcher = async (url) => {
 };
 
 export const usePosts = () => {
+  // 第２引数で渡す fetcher で処理の上書きができる
   const { data, error } = useSWR(
     "https://jsonplaceholder.typicode.com/posts",
     fetcher

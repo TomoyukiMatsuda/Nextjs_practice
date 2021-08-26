@@ -1,7 +1,7 @@
 import { usePosts } from "../../hooks/usePosts";
+import Link from "next/link";
 
 export const Posts = () => {
-  // 第２引数で渡す fetcher で処理の上書きができる
   const { data, error, isLoading, isEmpty } = usePosts();
 
   // error が無いかつ data がないでローディング
@@ -19,7 +19,13 @@ export const Posts = () => {
   return (
     <ol>
       {data.map((post) => {
-        return <li key={post.id}>{post.title}</li>;
+        return (
+          <li key={post.id}>
+            <Link href={`/post/${post.id}`}>
+              <a>{post.title}</a>
+            </Link>
+          </li>
+        );
       })}
     </ol>
   );
