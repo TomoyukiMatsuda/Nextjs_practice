@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Index Page</title>
+        <title>Posts Page</title>
       </Head>
       <Header />
       <Posts />
