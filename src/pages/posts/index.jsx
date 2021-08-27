@@ -1,19 +1,18 @@
-import styles from "src/styles/Home.module.css";
 import Head from "next/head";
 import { Header } from "src/components/Header";
-import { Posts } from "../../components/Posts";
+import { Posts as PostsComponent } from "../../components/Posts";
 
 // props 展開せずにその場その場でpropsから利用した方がpropsから渡ってきていることがわかりやすい説
-const Home = () => {
+const Posts = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Posts Page</title>
       </Head>
       <Header />
-      <Posts />
+      <PostsComponent />
     </div>
   );
 };
 
-export default Home;
+export default Posts;
