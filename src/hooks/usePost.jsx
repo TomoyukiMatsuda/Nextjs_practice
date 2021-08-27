@@ -1,17 +1,6 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
-
-const fetcher = async (url) => {
-  const response = await fetch(url);
-
-  // エラー
-  if (!response.ok) {
-    throw new Error("エラーが発生、データ取得に失敗");
-  }
-
-  const json = await response.json();
-  return json;
-};
+import { fetcher } from "../utils/fetcher";
 
 export const usePost = () => {
   const router = useRouter();
