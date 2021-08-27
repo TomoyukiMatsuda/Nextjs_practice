@@ -8,22 +8,31 @@ import useSWR from "swr";
 const PostId = () => {
   const router = useRouter();
   // query.id が取得できたらAPIを叩くようにする（query.id が存在しない状態でApiを叩くことを防いでいる）
-  const { data, error } = useSWR(
+  const { data: post, error: postError } = useSWR(
     router.query.id
       ? `https://jsonplaceholder.typicode.com/posts/${router.query.id}`
       : null
   );
+  const { data: user, error: userError } = useSWR(
+    post?.userId
+      ? `https://jsonplaceholder.typicode.com/users/${post.userId}`
+      : null
+  );
 
-  console.log({ data, error });
+  console.log({ post, postError });
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>{data?.title}</title>
+        <title>{post?.title}</title>
       </Head>
       <Header />
-      <h1>{data?.title}</h1>
-      <div>{data?.body}</div>
+      <div>
+        <h1>{post?.title}</h1>
+        <div>{post?.body}</div>
+        <br />
+        {user?.name ? <div>ユーザー名だよ：{user.name}</div> : null}
+      </div>
     </div>
   );
 };
