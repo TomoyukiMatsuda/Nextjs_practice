@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useUsers } from "../../hooks/useUsers";
 
-export const Users = () => {
+export const UsersComponent = () => {
   const { data, error, isLoading, isEmpty } = useUsers();
 
   // // error が無いかつ data がないでローディング

@@ -1,6 +1,6 @@
 import { useComments } from "../../hooks/useComments";
 
-export const Comments = () => {
+export const CommentsComponent = () => {
   const { data, error, isLoading, isEmpty } = useComments();
 
   // // error が無いかつ data がないでローディング
