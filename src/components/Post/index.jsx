@@ -4,7 +4,6 @@ import { usePost } from "../../hooks/usePost";
 export const Post = () => {
   const { post, user, error, isLoading } = usePost();
   // error が無いかつ data がないでローディング
-  console.log(isLoading);
   if (isLoading) {
     return <div>ローディング中です。</div>;
   }
