@@ -1,5 +1,5 @@
-import { usePosts } from "../../hooks/usePosts";
 import Link from "next/link";
+import { usePosts } from "../../hooks/useFetchArray";
 
 export const Posts = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
