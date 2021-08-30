@@ -1,8 +1,6 @@
 import useSWR from "swr";
 import { fetcher } from "../utils/fetcher";
 
-// todo しまぶー動画 #26 11分頃から再開！！
-
 const useFetchArray = (url) => {
   const { data, error } = useSWR(url, fetcher);
 
@@ -14,7 +12,7 @@ const useFetchArray = (url) => {
   };
 };
 
-const API_URL = "https://jsonplaceholder.typicode.com";
+export const API_URL = "https://jsonplaceholder.typicode.com";
 
 export const useComments = () => {
   return useFetchArray(`${API_URL}/comments`);
@@ -29,5 +27,6 @@ export const useUsers = () => {
 };
 
 export const useCommentsByPostsId = (id) => {
-  return useFetchArray(`${API_URL}/comments?postId=${id}`);
+  // id がないときは null を返す
+  return useFetchArray(id ? `${API_URL}/comments?postId=${id}` : null);
 };
