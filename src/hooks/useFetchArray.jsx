@@ -1,6 +1,8 @@
 import useSWR from "swr";
 import { fetcher } from "../utils/fetcher";
 
+// todo しまぶー動画 #26 11分頃から再開！！
+
 const useFetchArray = (url) => {
   const { data, error } = useSWR(url, fetcher);
 
@@ -24,4 +26,8 @@ export const usePosts = () => {
 
 export const useUsers = () => {
   return useFetchArray(`${API_URL}/users`);
+};
+
+export const useCommentsByPostsId = (id) => {
+  return useFetchArray(`${API_URL}/comments?postId=${id}`);
 };

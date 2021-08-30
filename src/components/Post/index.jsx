@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { usePost } from "../../hooks/usePost";
+import { CommentsByPostId } from "../Comments/CommentsByPostId";
 
 export const Post = () => {
   const { post, user, error, isLoading } = usePost();
@@ -20,6 +21,7 @@ export const Post = () => {
       <div>{post?.body}</div>
       <br />
       {user?.name ? <div>ユーザー名だよ：{user.name}</div> : null}
+      <CommentsByPostId id={post?.id} />
     </div>
   );
 };
