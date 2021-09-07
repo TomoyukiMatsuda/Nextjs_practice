@@ -30,3 +30,8 @@ export const useCommentsByPostsId = (id) => {
   // id がないときは null を返す
   return useFetchArray(id ? `${API_URL}/comments?postId=${id}` : null);
 };
+
+export const usePostsByUserId = (id) => {
+  // id がないときは null を返す
+  return useFetchArray(id ? `${API_URL}/posts?userId=${id}` : null);
+};
